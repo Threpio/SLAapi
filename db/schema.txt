@@ -1,0 +1,28 @@
+CREATE TABLE tests
+(
+    id          SERIAL PRIMARY KEY,
+    timestarted VARCHAR(20) NOT NULL,
+    timeended   VARCHAR(20) NOT NULL,
+    failure     BOOLEAN NOT NULL default(false),
+    service     VARCHAR(20) NOT NULL,
+    environment VARCHAR(20) NOT NULL,
+    testbody    jsonb
+)
+
+CREATE TABLE incomingsearches
+(
+    id SERIAL PRIMARY KEY,
+    timestart VARCHAR(20) NOT NULL,
+    timeend VARCHAR(20) NOT NULL,
+    service VARCHAR(30) NOT NULL,
+    environment VARCHAR(20) NOT NULL
+)
+
+CREATE TABLE searches
+(
+    id          SERIAL PRIMARY KEY,
+    timestart VARCHAR(20) NOT NULL,
+    timeend   VARCHAR(20) NOT NULL,
+    hasfailures BOOLEAN NOT NULL default(false),
+    periods   jsonb
+)
